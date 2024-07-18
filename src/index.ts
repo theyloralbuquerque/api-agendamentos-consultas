@@ -1,3 +1,14 @@
-import { server } from './server/server';
+import express from 'express';
+import { AppDataSource } from './data-source';
 
-server.listen(3333, () => console.log('App rodando!'));
+AppDataSource.initialize().then(() => {
+    const app = express();
+
+    app.use(express.json());
+
+    app.get('/', (req, res) => {
+        return res.json('Tudo certo');
+    });
+
+    return app.listen(process.env.PORT);
+});

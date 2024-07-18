@@ -1,14 +1,23 @@
 {
     "compilerOptions": {
-        "target": "es2016",
-        "lib": ["ESNext", "DOM"],
+        "target": "es2018",
+        "lib": ["es5", "es6", "es2018"],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "module": "commonjs",
-        "outDir": "./dist/assets/js",
-        "strict": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "outDir": "./dist",
         "esModuleInterop": true,
-        "allowJs": true
-        // "forceConsistentCasingInFileNames": true,
-        // "skipLibCheck": true
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictPropertyInitialization": false
     },
-    "include": ["./src"]
+    "include": ["./src"],
+    "exclude": ["node_modules", "dist"],
+    "ts-node": {
+        "files": true
+    }
 }
